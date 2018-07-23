@@ -17,14 +17,11 @@ import Button from 'grommet/components/Button';
 class Casamanzi extends Component {
 
   state = {
-    isLoading: false,
-    email: '',
-    url: ''
   }
 
   async componentDidMount() {
 
-    const response = await fetch('/controlla');
+    const response = await fetch('/casamanzi');
     const c = await response.json();
 
     console.log(c);
@@ -32,23 +29,6 @@ class Casamanzi extends Component {
     // Qui c'è da gestire la richiesta e far uscire un'altra pagina in base allo state!
     this.setState({ controlla: c })
 
-  }
-
-  _onHandleUrl = (e) => {
-    this.setState({ url: e.target.value });
-  }
-
-  _onHandleEmail = (e) => {
-    this.setState({ email: e.target.value });
-  }
-
-  _onHandleSubmit = (e) => {
-    // TODO FIX
-    console.log(this.state.url);
-    console.log(this.state.email);
-    this.setState({
-      isLoading: true
-    })
   }
 
   render() {
@@ -61,36 +41,9 @@ class Casamanzi extends Component {
           </Title>
         </Header>
 
-        {!this.state.isLoading ?
-
-          <Section>
-
-            <img src="../subito-logo.png" width={200} />
-
-            <Paragraph size='medium'>Inserisci un URL valido da <strong className="subitocolor">Subito.it</strong> e il tuo indirizzo email e <strong>controllasubito</strong> ti invierà un'email se ci sono nuovi articoli che possono interessarti!</Paragraph>
-
-            <Form onSubmit={this._onHandleSubmit}>
-              <FormField label='URL da Subito.it'>
-                <TextInput value={this.state.url} onDOMChange={this._onHandleUrl} />
-              </FormField>
-              <FormField label='Indirizzo email'>
-                <TextInput value={this.state.email} onDOMChange={this._onHandleEmail} />
-              </FormField>
-              <Footer pad={{ "vertical": "medium" }}>
-                <Button label='Tienimi aggiornato!'
-                  type='submit'
-                  primary={true} />
-              </Footer>
-            </Form>
-          </Section>
-
-          : //<Spinning size='large' />
-
-          <Section>
-            <Paragraph size='medium'><strong>Controllasubito</strong> non è ancora disponibile, è ancora in alpha-test!</Paragraph>
-          </Section>
-
-        }
+        <Section>
+          <Paragraph size='medium'><strong>casamanzi</strong> powered by Raspberry Pi</Paragraph>
+        </Section>
 
         <Footer justify='between'
           size='small'>
@@ -98,7 +51,7 @@ class Casamanzi extends Component {
             align='center'
             pad={{ "between": "medium" }}>
             <Paragraph margin='none'>
-              controllasubito v0.1, creato da <a href="https://matteomanzinello.com" target="_blank" rel="noopener noreferrer"><strong>matteo manzinello</strong></a>
+              casamanzi v0.1, creato da <a href="https://matteomanzinello.com" target="_blank" rel="noopener noreferrer"><strong>matteo manzinello</strong></a>
             </Paragraph>
           </Box>
         </Footer>
