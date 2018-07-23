@@ -7,9 +7,6 @@ import Header from 'grommet/components/Header';
 import Section from 'grommet/components/Section';
 import Paragraph from 'grommet/components/Paragraph'
 import Title from 'grommet/components/Title';
-import Form from 'grommet/components/Form';
-import FormField from 'grommet/components/FormField';
-import TextInput from 'grommet/components/TextInput';
 import Box from 'grommet/components/Box';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
