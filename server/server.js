@@ -4,6 +4,10 @@ const path = require('path');
 const request = require('request');
 const schedule = require('node-schedule');
 
+const Gpio = require('onoff').Gpio;
+const led = new Gpio(17, 'out');
+const button = new Gpio(4, 'in', 'both');
+
 const REQUEST_OK = 200;
 const ERROR = "error";
 const router = express.Router()
@@ -34,5 +38,11 @@ app.set('port', (process.env.PORT || 3001))
 app.listen(app.get('port'), () => {
 
   console.log(`listening on ${app.get('port')}`);
+
+  /*
+  button.watch(function (err, value) {
+    led.writeSync(value);
+  });
+  */
 
 })
