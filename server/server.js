@@ -1,17 +1,16 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
-/*
-const request = require('request');
-const schedule = require('node-schedule');
 
+/*
 const Gpio = require('onoff').Gpio;
 const led = new Gpio(17, 'out');
 const button = new Gpio(4, 'in', 'both');
+*/
 
 const REQUEST_OK = 200;
 const ERROR = "error";
-*/
+
 const router = express.Router()
 
 const staticFiles = express.static(path.join(__dirname, '../../client/build'))
@@ -23,7 +22,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }))
 
-app.use(staticFiles)
+app.use(staticFiles);
 
 router.get('/casamanzi', (req, res) => {
   const controlla = {
