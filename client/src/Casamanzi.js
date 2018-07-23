@@ -14,7 +14,7 @@ import Box from 'grommet/components/Box';
 import Footer from 'grommet/components/Footer';
 import Button from 'grommet/components/Button';
 
-class Controllasubito extends Component {
+class Casamanzi extends Component {
 
   state = {
     isLoading: false,
@@ -57,7 +57,7 @@ class Controllasubito extends Component {
 
         <Header size='large'>
           <Title>
-            controllasubito
+            casamanzi
           </Title>
         </Header>
 
@@ -109,5 +109,5 @@ class Controllasubito extends Component {
 
 }
 
-export default Controllasubito;
+export default Casamanzi;
 

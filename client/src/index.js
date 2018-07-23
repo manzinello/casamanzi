@@ -3,6 +3,6 @@ import ReactDOM from 'react-dom';
 
 import './index.css';
 
-import Controllasubito from './Controllasubito';
+import Casamanzi from './Casamanzi';
 
-ReactDOM.render(<Controllasubito />, document.getElementById('root'));
+ReactDOM.render(<Casamanzi />, document.getElementById('root'));
