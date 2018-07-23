@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
+/*
 const request = require('request');
 const schedule = require('node-schedule');
 
@@ -10,6 +11,7 @@ const button = new Gpio(4, 'in', 'both');
 
 const REQUEST_OK = 200;
 const ERROR = "error";
+*/
 const router = express.Router()
 
 const staticFiles = express.static(path.join(__dirname, '../../client/build'))
