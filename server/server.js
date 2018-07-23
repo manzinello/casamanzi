@@ -11,6 +11,7 @@ const button = new Gpio(4, 'in', 'both');
 const REQUEST_OK = 200;
 const ERROR = "error";
 const router = express.Router()
+
 const staticFiles = express.static(path.join(__dirname, '../../client/build'))
 
 const app = express();
