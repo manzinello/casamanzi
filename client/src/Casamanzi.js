@@ -27,7 +27,7 @@ class Casamanzi extends Component {
     console.log(c);
 
     // Qui c'è da gestire la richiesta e far uscire un'altra pagina in base allo state!
-    this.setState({ controlla: c })
+    this.setState({ casamanzi: c })
 
   }
 
@@ -42,7 +42,7 @@ class Casamanzi extends Component {
         </Header>
 
         <Section>
-          <Paragraph size='medium'><strong>casamanzi</strong> powered by Raspberry Pi</Paragraph>
+          <Paragraph size='medium'><strong>lorem</strong> ipsum</Paragraph>
         </Section>
 
         <Footer justify='between'
@@ -50,8 +50,8 @@ class Casamanzi extends Component {
           <Box direction='row'
             align='center'
             pad={{ "between": "medium" }}>
-            <Paragraph margin='none'>
-              casamanzi v0.1, creato da <a href="https://matteomanzinello.com" target="_blank" rel="noopener noreferrer"><strong>matteo manzinello</strong></a>
+            <Paragraph size='small'>
+              casamanzi v0.1, creata da <a href="https://matteomanzinello.com" target="_blank" rel="noopener noreferrer"><strong>matteo manzinello</strong></a>
             </Paragraph>
           </Box>
         </Footer>
