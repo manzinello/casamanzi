@@ -1,6 +1,6 @@
 {
-  "name": "casamanzi-raspi",
-  "description": "casamanzi (RaspBerry Pi)",
+  "name": "casamanzi",
+  "description": "casamanzi (on RaspBerry Pi)",
   "version": "0.1.0",
   "repository": {},
   "license": "MIT",
