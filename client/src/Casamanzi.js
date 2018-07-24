@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Casamanzi.css';
 
-import { Heading, Text, Button } from 'evergreen-ui'
+import { Heading, Text, Button, Code } from 'evergreen-ui'
 
 class Casamanzi extends Component {
 
@@ -34,6 +34,10 @@ class Casamanzi extends Component {
         <br /><br />
 
         <Button>I am using 🌲 Evergreen!</Button>
+
+        <br /><br />
+
+        <Code>casamanzi, fatta con ❤️ da matteo manzinello</Code>
 
       </div>
     );
