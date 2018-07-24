@@ -22,9 +22,7 @@ class Casamanzi extends Component {
   render() {
     return (
       <div>
-
         <p>casamanzi</p>
-
       </div>
     );
   }
