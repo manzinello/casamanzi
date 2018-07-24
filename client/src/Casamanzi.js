@@ -21,11 +21,11 @@ class Casamanzi extends Component {
 
   render() {
     return (
-      <App>
+      <div>
 
         <p>Casamanzi</p>
 
-      </App>
+      </div>
     );
   }
 
