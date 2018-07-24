@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import './Casamanzi.css';
 
+import { Button } from 'evergreen-ui'
+
 class Casamanzi extends Component {
 
   state = {
@@ -24,6 +26,8 @@ class Casamanzi extends Component {
       <div>
 
         <p>Casamanzi</p>
+
+        <Button>I am using 🌲 Evergreen!</Button>
 
       </div>
     );

@@ -5,6 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
+    "evergreen-ui": "^3.2.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-scripts": "1.1.4"
