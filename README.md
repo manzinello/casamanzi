@@ -1,7 +1,11 @@
-# 🏡 casamanzi (Raspberry Pi)
+# 🏡 casamanzi
 
-Raspberry Pi a casamanzi
+casamanzi powered by a Raspberry Pi
 
+## built-with
+...
+
+## Raspberry GPIO
 ![](client/public/images/gpio-numbers-pi2.png)
 
 ### // TODO
