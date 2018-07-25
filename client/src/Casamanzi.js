@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Casamanzi.css';
 
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Breadcrumb, Button } from 'antd';
 
 const { Header, Content, Footer } = Layout;
 
@@ -52,7 +52,10 @@ class Casamanzi extends Component {
             <Breadcrumb.Item>List</Breadcrumb.Item>
             <Breadcrumb.Item>App</Breadcrumb.Item>
           </Breadcrumb>
-          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content</div>
+          <div style={{ background: '#fff', padding: 24, minHeight: 280 }}>Content
+          <br/>
+          <Button type="primary">Primary</Button>
+          </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
           Ant Design ©2016 Created by Ant UED
