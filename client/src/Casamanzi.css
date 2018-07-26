@@ -1,6 +1,10 @@
 @import '~antd/dist/antd.css';
-#components-layout-demo-side .logo {
+.logo {
     height: 64px;
-    background: rgba(255, 255, 255, .2);
     margin: 16px;
+}
+
+.logo-p {
+    line-height: 64px;
+    font-size: 36px;
 }

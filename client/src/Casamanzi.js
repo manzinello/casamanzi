@@ -44,7 +44,7 @@ class Casamanzi extends Component {
           collapsible
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}>
-          <div className="logo" style={{color:'white', textAlign:'center', height:64, margin:'auto'}}>🏡</div>
+          <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><p className="logo-p">🏡</p></div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
             <Menu.Item key="1">
               <Icon type="pie-chart" />
