@@ -6,5 +6,10 @@
 
 .logo-p {
     line-height: 64px;
-    font-size: 36px;
+    font-size: 32px;
+}
+
+.header-p {
+    margin-left: 16px;
+    font-size: 24px;
 }

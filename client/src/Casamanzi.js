@@ -10,7 +10,7 @@ const SubMenu = Menu.SubMenu;
 class Casamanzi extends Component {
 
   state = {
-    collapsed: false,
+    collapsed: true,
   };
 
   onCollapse = (collapsed) => {
@@ -74,7 +74,9 @@ class Casamanzi extends Component {
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} />
+          <Header style={{ background: '#fff', padding: 0 }} >
+            <p className="header-p"><strong>casa</strong>manzi</p>
+          </Header>
           <Content style={{ margin: '0 16px' }}>
             <Breadcrumb style={{ margin: '16px 0' }}>
               <Breadcrumb.Item>User</Breadcrumb.Item>
