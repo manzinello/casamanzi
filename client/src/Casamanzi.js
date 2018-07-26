@@ -2,15 +2,19 @@ import React, { Component } from 'react';
 
 import './Casamanzi.css';
 
-import { Layout, Menu, Breadcrumb, Icon } from 'antd';
+import { Layout, Menu, Icon } from 'antd';
+
+import Home from './screens/Home';
+import Due from './screens/Due';
+import Manzistreaming from './screens/Manzistreaming';
 
 const { Header, Content, Footer, Sider } = Layout;
-const SubMenu = Menu.SubMenu;
 
 class Casamanzi extends Component {
 
   state = {
     collapsed: true,
+    s: 'home'
   };
 
   onCollapse = (collapsed) => {
@@ -22,6 +26,12 @@ class Casamanzi extends Component {
     this.setState({
       collapsed: !this.state.collapsed,
     });
+  }
+
+  select = v => {
+    this.setState({
+      s: v.key
+    })
   }
 
   async componentDidMount() {
@@ -44,16 +54,16 @@ class Casamanzi extends Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}>
           <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><p className="logo-p">🏡</p></div>
-          <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
-            <Menu.Item key="1">
+          <Menu theme="dark" onSelect={this.select} selectedKeys={[this.state.s]} mode="inline">
+            <Menu.Item key="home">
               <Icon type="appstore" />
               <span>casamanzi</span>
             </Menu.Item>
-            <Menu.Item key="2">
+            <Menu.Item key="due">
               <Icon type="file-text" />
               <span>due</span>
             </Menu.Item>
-            <Menu.Item key="3">
+            <Menu.Item key="manzistreaming">
               <Icon type="video-camera" />
               <span>manzistreaming</span>
             </Menu.Item>
@@ -65,7 +75,11 @@ class Casamanzi extends Component {
           </Header>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
-              Bill is a cat.
+              {
+                this.state.s === 'home' ? <Home /> : 
+                this.state.s === 'due' ? <Due /> :
+                <Manzistreaming />
+              }
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
