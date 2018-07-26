@@ -85,7 +85,7 @@ class Casamanzi extends Component {
             </div>
           </Content>
           <Footer style={{ textAlign: 'center' }}>
-            <strong>casamanzi</strong>, creata da <a href="https://matteomanzinello.com">matteo manzinello</a>
+            <strong>casamanzi</strong>, creata con ❤️ da <a href="https://matteomanzinello.com">matteo manzinello</a>
           </Footer>
         </Layout>
       </Layout>
