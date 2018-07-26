@@ -51,6 +51,9 @@ class Casamanzi extends Component {
       <Layout style={{ minHeight: '100vh' }}>
         <Sider
           collapsible
+          breakpoint="md"
+          collapsedWidth="0"
+          onBreakpoint={(broken) => { console.log(broken); }}
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}>
           <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><p className="logo-p">🏡</p></div>
@@ -76,9 +79,9 @@ class Casamanzi extends Component {
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               {
-                this.state.s === 'home' ? <Home /> : 
-                this.state.s === 'due' ? <Due /> :
-                <Manzistreaming />
+                this.state.s === 'home' ? <Home /> :
+                  this.state.s === 'due' ? <Due /> :
+                    <Manzistreaming />
               }
             </div>
           </Content>
