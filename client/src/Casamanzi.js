@@ -58,7 +58,7 @@ class Casamanzi extends Component {
           </div>
         </Content>
         <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©2016 Created by Ant UED
+          casamanzi, creata con ❤️ da <a href="https://matteomanzinello.com">matteo manzinello</a>
       </Footer>
       </Layout>
     );
