@@ -4,7 +4,7 @@ class Manzistreaming extends Component {
 
     render() {
         return (
-            <p>Manzistreaming</p>
+            <p>manzi<strong>streaming</strong> non è attivo al momento!</p>
         )
     }
 
