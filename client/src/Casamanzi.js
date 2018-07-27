@@ -60,23 +60,20 @@ class Casamanzi extends Component {
           <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><img className="emoji-logo" src="images/casamanzi.png" alt="casamanzi" /></div>
           <Menu onSelect={this.select} selectedKeys={[this.state.s]} mode="inline">
             <Menu.Item key="home">
-              <Icon type="appstore" />
+              <Icon type="home" />
               <span>casamanzi</span>
             </Menu.Item>
             <Menu.Item key="due">
               <Icon type="file-text" />
-              <span>due</span>
+              <span>chiamo il due</span>
             </Menu.Item>
             <Menu.Item key="manzistreaming">
               <Icon type="video-camera" />
-              <span>manzistreaming</span>
+              <span>streaming</span>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
-          <Header style={{ background: '#fff', padding: 0 }} >
-            <p className="header-p"><strong>casa</strong>manzi</p>
-          </Header>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               {
