@@ -56,7 +56,7 @@ class Casamanzi extends Component {
           onBreakpoint={(broken) => { console.log(broken); }}
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}>
-          <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><p className="logo-p">🏡</p></div>
+          <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><img src="images/casamanzi.png"/></div>
           <Menu theme="dark" onSelect={this.select} selectedKeys={[this.state.s]} mode="inline">
             <Menu.Item key="home">
               <Icon type="appstore" />
