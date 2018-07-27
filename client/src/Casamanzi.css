@@ -17,3 +17,15 @@
 .ant-layout-sider-zero-width-trigger {
     top: 88%;
 }
+
+.emoji {
+    height: 28px;
+    width: 28px;
+    margin-bottom: 4px;
+}
+
+.emoji-logo {
+    height: 30px;
+    width: 30px;
+    margin-top: 12px;
+}
