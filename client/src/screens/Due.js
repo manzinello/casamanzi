@@ -7,9 +7,11 @@ class Due extends Component {
     render() {
         return (
             <Row>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1}>Col</Col>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1}>Col</Col>
-                <Col xs={1} sm={1} md={1} lg={1} xl={1}>Col</Col>
+                <Col xs={24} sm={24} md={4} lg={4} xl={4}>Col</Col>
+                <Col xs={24} sm={24} md={4} lg={4} xl={4}>Col</Col>
+                <Col xs={24} sm={24} md={4} lg={4} xl={4}>Col</Col>
+                <Col xs={24} sm={24} md={4} lg={4} xl={4}>Col</Col>
+                <Col xs={24} sm={24} md={4} lg={4} xl={4}>Col</Col>
             </Row>
         )
     }
