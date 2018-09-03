@@ -1,4 +1,5 @@
 @import '~antd/dist/antd.css';
+
 .logo {
     height: 64px;
     margin: 16px;
@@ -28,4 +29,8 @@
     height: 30px;
     width: 30px;
     margin-top: 16px;
+}
+
+.punteggio-row {
+    margin-bottom: 30px;
 }

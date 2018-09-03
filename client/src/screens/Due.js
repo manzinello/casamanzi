@@ -58,23 +58,41 @@ class Due extends Component {
 
         return (
             <div>
-                <Row>
-                    <Select
-                        showSearch
-                        style={{ width: 200 }}
-                        placeholder="Select a person"
-                        optionFilterProp="children"
-                        //onChange={handleChange}
-                        //onFocus={handleFocus}
-                        //onBlur={handleBlur}
-                        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                        <Option value="g1">{this.state.g1.nome}</Option>
-                        <Option value="g2">{this.state.g2.nome}</Option>
-                        <Option value="g3">{this.state.g3.nome}</Option>
-                        <Option value="g4">{this.state.g4.nome}</Option>
-                        <Option value="g5">{this.state.g5.nome}</Option>
-                    </Select>
-                </Row>
+                <div className="punteggio-row">
+                    <Row>
+                        <Select
+                            showSearch
+                            style={{ width: 200, paddingRight: 30 }}
+                            placeholder="Chi ha chiamato?"
+                            optionFilterProp="children"
+                            //onChange={handleChange}
+                            //onFocus={handleFocus}
+                            //onBlur={handleBlur}
+                            filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
+                            <Option value="g1">{this.state.g1.nome}</Option>
+                            <Option value="g2">{this.state.g2.nome}</Option>
+                            <Option value="g3">{this.state.g3.nome}</Option>
+                            <Option value="g4">{this.state.g4.nome}</Option>
+                            <Option value="g5">{this.state.g5.nome}</Option>
+                        </Select>
+                        <Select
+                            showSearch
+                            style={{ width: 200, paddingRight: 30 }}
+                            placeholder="Chi era il socio?"
+                            optionFilterProp="children"
+                            //onChange={handleChange}
+                            //onFocus={handleFocus}
+                            //onBlur={handleBlur}
+                            filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
+                            <Option value="g1">{this.state.g1.nome}</Option>
+                            <Option value="g2">{this.state.g2.nome}</Option>
+                            <Option value="g3">{this.state.g3.nome}</Option>
+                            <Option value="g4">{this.state.g4.nome}</Option>
+                            <Option value="g5">{this.state.g5.nome}</Option>
+                        </Select>
+                        <Button type="primary">Segna il punteggio</Button>
+                    </Row>
+                </div>
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.g1.nome}</h3>
@@ -105,7 +123,7 @@ class Due extends Component {
 
 const styles = {
     col: {
-        textAlign: 'center'
+        //textAlign: 'center'
     }
 }
 
