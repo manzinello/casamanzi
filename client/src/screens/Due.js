@@ -82,19 +82,19 @@ class Due extends Component {
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.g2.nome}</h3>
-                        {this.state.g2.punti}
+                        <h2>{this.state.g2.punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.g3.nome}</h3>
-                        {this.state.g3.punti}
+                        <h2>{this.state.g3.punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.g4.nome}</h3>
-                        {this.state.g4.punti}
+                        <h2>{this.state.g4.punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.g5.nome}</h3>
-                        {this.state.g5.punti}
+                        <h2>{this.state.g5.punti}</h2>
                     </Col>
                 </Row>
             </div>

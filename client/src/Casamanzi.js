@@ -7,8 +7,9 @@ import { Layout, Menu, Icon } from 'antd';
 import Home from './screens/Home';
 import Due from './screens/Due';
 import Manzistreaming from './screens/Manzistreaming';
+import Cinemanzi from './screens/Cinemanzi';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Content, Footer, Sider } = Layout;
 
 class Casamanzi extends Component {
 
@@ -63,13 +64,17 @@ class Casamanzi extends Component {
               <Icon type="home" />
               <span>casamanzi</span>
             </Menu.Item>
-            <Menu.Item key="due">
-              <Icon type="file-text" />
-              <span>chiamo il due</span>
+            <Menu.Item key="cinemanzi">
+              <Icon type="play-circle" />
+              <span>cinemanzi</span>
             </Menu.Item>
             <Menu.Item key="manzistreaming">
               <Icon type="video-camera" />
-              <span>streaming</span>
+              <span>manzistreaming</span>
+            </Menu.Item>
+            <Menu.Item key="due">
+              <Icon type="file-text" />
+              <span>chiamo il due</span>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -79,7 +84,8 @@ class Casamanzi extends Component {
               {
                 this.state.s === 'home' ? <Home /> :
                   this.state.s === 'due' ? <Due /> :
-                    <Manzistreaming />
+                    this.state.s === 'cinemanzi' ? <Cinemanzi /> :
+                      <Manzistreaming />
               }
             </div>
           </Content>
