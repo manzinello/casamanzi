@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 
-import { Row, Col, Button } from 'antd';
+import { Row, Col, Button, Select } from 'antd';
+
+const Option = Select.Option;
 
 class Due extends Component {
 
@@ -55,28 +57,47 @@ class Due extends Component {
     render() {
 
         return (
-            <Row>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{this.state.g1.nome}</h3>
-                    {this.state.g1.punti}
-                </Col>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{this.state.g2.nome}</h3>
-                    {this.state.g2.punti}
-                </Col>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{this.state.g3.nome}</h3>
-                    {this.state.g3.punti}
-                </Col>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{this.state.g4.nome}</h3>
-                    {this.state.g4.punti}
-                </Col>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{this.state.g5.nome}</h3>
-                    {this.state.g5.punti}
-                </Col>
-            </Row>
+            <div>
+                <Row>
+                    <Select
+                        showSearch
+                        style={{ width: 200 }}
+                        placeholder="Select a person"
+                        optionFilterProp="children"
+                        //onChange={handleChange}
+                        //onFocus={handleFocus}
+                        //onBlur={handleBlur}
+                        filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
+                        <Option value="g1">{this.state.g1.nome}</Option>
+                        <Option value="g2">{this.state.g2.nome}</Option>
+                        <Option value="g3">{this.state.g3.nome}</Option>
+                        <Option value="g4">{this.state.g4.nome}</Option>
+                        <Option value="g5">{this.state.g5.nome}</Option>
+                    </Select>
+                </Row>
+                <Row>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h3>{this.state.g1.nome}</h3>
+                        {this.state.g1.punti}
+                    </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h3>{this.state.g2.nome}</h3>
+                        {this.state.g2.punti}
+                    </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h3>{this.state.g3.nome}</h3>
+                        {this.state.g3.punti}
+                    </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h3>{this.state.g4.nome}</h3>
+                        {this.state.g4.punti}
+                    </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h3>{this.state.g5.nome}</h3>
+                        {this.state.g5.punti}
+                    </Col>
+                </Row>
+            </div>
         )
     }
 
