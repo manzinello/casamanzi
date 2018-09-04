@@ -40,6 +40,27 @@ class Due extends Component {
     aggiornaPuntiNome(nome, aggiungi) {
         for (var g in this.state.giocatori) {
             if (nome === this.state.giocatori[g].nome) {
+                switch (nome) {
+                    case 'g1':
+                        this.setState({
+                            giocatori: {
+                                g1: {
+                                    punti: this.state.giocatori.g1.punti + aggiungi
+                                }
+                            }
+                        });
+                        break;
+                        case 'g2':
+                            this.setState({
+                                giocatori: {
+                                    g2: {
+                                        punti: this.state.giocatori.g2.punti + aggiungi
+                                    }
+                                }
+                            });
+                            break;
+                    default: break;
+                }
                 this.state.giocatori[g].punti += aggiungi
             }
         }
@@ -63,7 +84,6 @@ class Due extends Component {
             actualComandante: v
         })
     }
-
 
     handleChangeSocio = v => {
         this.setState({
