@@ -19,7 +19,7 @@ class Casamanzi extends Component {
   };
 
   onCollapse = (collapsed) => {
-    console.log(collapsed);
+    // console.log(collapsed);
     this.setState({ collapsed });
   }
 
@@ -54,7 +54,7 @@ class Casamanzi extends Component {
           collapsible
           breakpoint="md"
           collapsedWidth="0"
-          onBreakpoint={(broken) => { console.log(broken); }}
+          // onBreakpoint={(broken) => { console.log(broken); }}
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
           style={{ background: '#fff' }}>
