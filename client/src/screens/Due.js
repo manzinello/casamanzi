@@ -6,33 +6,32 @@ const Option = Select.Option;
 
 class Due extends Component {
 
-    due;
+    partita;
 
     state = {
-        giocatori: {
-            g1: {
-                nome: 'Giocatore 1',
-                punti: 0
-            },
-            g2: {
-                nome: 'Giocatore 2',
-                punti: 0
-            },
-            g3: {
-                nome: 'Giocatore 3',
-                punti: 0
-            },
-            g4: {
-                nome: 'Giocatore 4',
-                punti: 0
-            },
-            g5: {
-                nome: 'Giocatore 5',
-                punti: 0
-            }
-        },
-        actualComandante: '',
-        actualSocio: ''
+        giocatori: [{
+            id: 'g1',
+            nome: 'Giocatore 1',
+            punti: 0
+        }, {
+            id: 'g2',
+            nome: 'Giocatore 2',
+            punti: 0
+        }, {
+            id: 'g3',
+            nome: 'Giocatore 3',
+            punti: 0
+        }, {
+            id: 'g4',
+            nome: 'Giocatore 4',
+            punti: 0
+        }, {
+            id: 'g5',
+            nome: 'Giocatore 5',
+            punti: 0
+        }],
+        comandante: '',
+        socio: ''
     }
 
     componentDidUpdate() {
@@ -40,43 +39,50 @@ class Due extends Component {
     }
 
     checkPunti() {
-        return this.state.giocatori.g1.punti + this.state.giocatori.g2.punti + this.state.giocatori.g3.punti + this.state.giocatori.g4.punti + this.state.giocatori.g5.punti === 0
+        var sum = this.state.giocatori.reduce(function (a, b) {
+            return a.punti + b.punti;
+        }, 0);
+        return sum === 0;
     }
 
-    aggiornaPunti(nome, aggiungi) {
-
-        this.due.giocatori[nome].punti += aggiungi;
+    aggiornaPunti(id, aggiungi) {
+        var i = this.findGiocatore(id);
+        this.due.giocatori[i].punti += aggiungi;
         this.setState(this.due);
+    }
 
+    findGiocatore(searchedId) {
+        return this.state.giocatori.findIndex(v => v.id === searchedId);
     }
 
     win(moltiplicatore = 1) {
 
-        this.aggiornaPunti(this.state.actualComandante, 2 * moltiplicatore);
-        this.aggiornaPunti(this.state.actualSocio, 1 * moltiplicatore);
+        this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore);
+        this.aggiornaPunti(this.state.socio, 1 * moltiplicatore);
 
-        for (var g in this.due.giocatori) {
-            console.log(g);
-            if (this.due.giocatori[g] !== this.state.actualComandante && this.due.giocatori[g] !== this.state.actualSocio) {
-                this.aggiornaPunti(this.due.giocatori[g], -1 * moltiplicatore)
+        this.due.giocatori.forEach((v, i) => {
+            if (v.id !== this.state.comandante && v.id !== this.state.socio) {
+                this.aggiornaPunti(this.due.giocatori[i].id, -1 * moltiplicatore);
             }
-        }
+        })
+
+        this.setState(this.due);
 
     }
 
-    aggiornaPunteggio = () => {
+    fineMano = () => {
         this.win();
     }
 
     handleChangeComandante = v => {
         this.setState({
-            actualComandante: v
+            comandante: v
         })
     }
 
     handleChangeSocio = v => {
         this.setState({
-            actualSocio: v
+            socio: v
         })
     }
 
@@ -97,11 +103,11 @@ class Due extends Component {
                             //onFocus={handleFocus}
                             //onBlur={handleBlur}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                            <Option value="g1">{this.state.giocatori.g1.nome}</Option>
-                            <Option value="g2">{this.state.giocatori.g2.nome}</Option>
-                            <Option value="g3">{this.state.giocatori.g3.nome}</Option>
-                            <Option value="g4">{this.state.giocatori.g4.nome}</Option>
-                            <Option value="g5">{this.state.giocatori.g5.nome}</Option>
+                            <Option value="g1">{this.state.giocatori[0].nome}</Option>
+                            <Option value="g2">{this.state.giocatori[1].nome}</Option>
+                            <Option value="g3">{this.state.giocatori[2].nome}</Option>
+                            <Option value="g4">{this.state.giocatori[3].nome}</Option>
+                            <Option value="g5">{this.state.giocatori[4].nome}</Option>
                         </Select>
                         <Select
                             showSearch
@@ -112,39 +118,39 @@ class Due extends Component {
                             //onFocus={handleFocus}
                             //onBlur={handleBlur}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                            <Option value="g1">{this.state.giocatori.g1.nome}</Option>
-                            <Option value="g2">{this.state.giocatori.g2.nome}</Option>
-                            <Option value="g3">{this.state.giocatori.g3.nome}</Option>
-                            <Option value="g4">{this.state.giocatori.g4.nome}</Option>
-                            <Option value="g5">{this.state.giocatori.g5.nome}</Option>
+                            <Option value="g1">{this.state.giocatori[0].nome}</Option>
+                            <Option value="g2">{this.state.giocatori[1].nome}</Option>
+                            <Option value="g3">{this.state.giocatori[2].nome}</Option>
+                            <Option value="g4">{this.state.giocatori[3].nome}</Option>
+                            <Option value="g5">{this.state.giocatori[4].nome}</Option>
                         </Select>
                         <Button
                             type="primary"
-                            onClick={this.aggiornaPunteggio}>
+                            onClick={this.fineMano}>
                             Segna il punteggio
                         </Button>
                     </Row>
                 </div>
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h3>{this.state.giocatori.g1.nome}</h3>
-                        <h2>{this.state.giocatori.g1.punti}</h2>
+                        <h3>{this.state.giocatori[0].nome}</h3>
+                        <h2>{this.state.giocatori[0].punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h3>{this.state.giocatori.g2.nome}</h3>
-                        <h2>{this.state.giocatori.g2.punti}</h2>
+                        <h3>{this.state.giocatori[1].nome}</h3>
+                        <h2>{this.state.giocatori[1].punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h3>{this.state.giocatori.g3.nome}</h3>
-                        <h2>{this.state.giocatori.g3.punti}</h2>
+                        <h3>{this.state.giocatori[2].nome}</h3>
+                        <h2>{this.state.giocatori[2].punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h3>{this.state.giocatori.g4.nome}</h3>
-                        <h2>{this.state.giocatori.g4.punti}</h2>
+                        <h3>{this.state.giocatori[3].nome}</h3>
+                        <h2>{this.state.giocatori[3].punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h3>{this.state.giocatori.g5.nome}</h3>
-                        <h2>{this.state.giocatori.g5.punti}</h2>
+                        <h3>{this.state.giocatori[4].nome}</h3>
+                        <h2>{this.state.giocatori[4].punti}</h2>
                     </Col>
                 </Row>
             </div>
