@@ -133,6 +133,9 @@ class Due extends Component {
                 </div>
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h2>Punteggio attuale</h2>
+                    </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
                         <h2>{this.state.giocatori[0].punti}</h2>
                     </Col>
