@@ -4,7 +4,6 @@ const path = require('path');
 const request = require('request');
 const schedule = require('node-schedule');
 
-
 /*
 const Gpio = require('onoff').Gpio;
 const led = new Gpio(17, 'out');
