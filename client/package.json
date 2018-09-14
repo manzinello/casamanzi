@@ -5,10 +5,10 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "antd": "^3.9.1",
+    "antd": "^3.9.2",
     "evergreen-ui": "^4.0.0-18",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1",
     "react-scripts": "1.1.5"
   },
   "scripts": {
