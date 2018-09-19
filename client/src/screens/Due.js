@@ -48,7 +48,9 @@ class Due extends Component {
     aggiornaPunti(id, aggiungi) {
         var i = this.findGiocatore(id);
         this.due.giocatori[i].punti += aggiungi;
-        this.setState(this.due);
+        this.setState({
+            giocatori: update(this.state.giocatori, {1: {punti: {$set: this.state.giocatori[i].punti + aggiungi}}})
+          })
     }
 
     findGiocatore(searchedId) {
