@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 import { Row, Col, Button, Select } from 'antd';
 
 const Option = Select.Option;
 
 class Due extends Component {
-
-    partita;
 
     state = {
         giocatori: [{
@@ -31,7 +30,8 @@ class Due extends Component {
             punti: 0
         }],
         comandante: '',
-        socio: ''
+        socio: '',
+        storico: []
     }
 
     componentDidUpdate() {
@@ -71,7 +71,9 @@ class Due extends Component {
     }
 
     fineMano = () => {
+        this.due.storico.push(<FinePartita p0={this.state.giocatori[0].punti} p1={this.state.giocatori[1].punti} p2={this.state.giocatori[2].punti} p3={this.state.giocatori[3].punti} p4={this.state.giocatori[4].punti} />);
         this.win();
+        this.setState(this.due);
     }
 
     handleChangeComandante = v => {
@@ -84,6 +86,11 @@ class Due extends Component {
         this.setState({
             socio: v
         })
+    }
+
+    handleChangeName = (name, i) => {
+        this.due.giocatori[i].name = name;
+        this.setState(this.due);
     }
 
     render() {
@@ -123,13 +130,13 @@ class Due extends Component {
                         <Button
                             type="primary"
                             onClick={this.fineMano}>
-                            Segna il punteggio
+                            {"Segna il punteggio"}
                         </Button>
                     </Row>
                 </div>
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h2>Punteggio attuale</h2>
+                        <h2>{"Punteggio attuale"}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
@@ -152,10 +159,43 @@ class Due extends Component {
                         <h2>{this.state.giocatori[4].punti}</h2>
                     </Col>
                 </Row>
+                {
+                    this.due.storico.map((v) => <FinePartita />)
+                }
             </div>
         )
     }
 
+}
+
+class FinePartita extends React.Component {
+
+    render() {
+
+        return (
+            <Row>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{(new Date()).getTime()}</h2>
+                </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{this.props.p0}</h2>
+                </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{this.props.p1}</h2>
+                </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{this.props.p2}</h2>
+                </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{this.props.p3}</h2>
+                </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h2>{this.props.p4}</h2>
+                </Col>
+            </Row>
+        )
+
+    }
 }
 
 const styles = {

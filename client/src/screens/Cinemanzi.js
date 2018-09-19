@@ -4,7 +4,7 @@ class Cinemanzi extends Component {
 
     render() {
         return (
-            <p>sezione in costruzione!</p>
+            <p><strong>cinemanzi</strong> non è attivo al momento!</p>
         )
     }
 
