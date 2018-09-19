@@ -65,6 +65,13 @@ class Due extends Component {
     }
 
     fineMano = () => {
+
+        this.setState({
+            storico: update(this.state, { storico: { $push: [this.state.giocatori] } })
+        })
+
+        console.log(this.state.storico.length)
+
         this.win();
     }
 
@@ -153,7 +160,7 @@ class Due extends Component {
                     </Col>
                 </Row>
                 {
-                    this.state.storico.map(() => <FinePartita />)
+                    this.state.storico.map((giocatori) => <FinePartita giocatori={giocatori} />)
                 }
             </div>
         )
@@ -171,19 +178,19 @@ class FinePartita extends React.Component {
                     <h2>{(new Date()).getTime()}</h2>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.p0}</h2>
+                    <h2>{this.props.giocatori[0].punti}</h2>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.p1}</h2>
+                    <h2>{this.props.giocatori[1].punti}</h2>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.p2}</h2>
+                    <h2>{this.props.giocatori[2].punti}</h2>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.p3}</h2>
+                    <h2>{this.props.giocatori[3].punti}</h2>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.p4}</h2>
+                    <h2>{this.props.giocatori[4].punti}</h2>
                 </Col>
             </Row>
         )
