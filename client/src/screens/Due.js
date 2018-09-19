@@ -9,23 +9,23 @@ class Due extends Component {
 
     state = {
         giocatori: [{
-            id: 'g1',
+            id: '0',
             nome: 'Giocatore 1',
             punti: 0
         }, {
-            id: 'g2',
+            id: '1',
             nome: 'Giocatore 2',
             punti: 0
         }, {
-            id: 'g3',
+            id: '2',
             nome: 'Giocatore 3',
             punti: 0
         }, {
-            id: 'g4',
+            id: '3',
             nome: 'Giocatore 4',
             punti: 0
         }, {
-            id: 'g5',
+            id: '4',
             nome: 'Giocatore 5',
             punti: 0
         }],
@@ -46,15 +46,9 @@ class Due extends Component {
     }
 
     aggiornaPunti(id, aggiungi) {
-        var i = this.findGiocatore(id);
-        this.due.giocatori[i].punti += aggiungi;
-        this.setState({
-            giocatori: update(this.state.giocatori, {1: {punti: {$set: this.state.giocatori[i].punti + aggiungi}}})
-          })
-    }
-
-    findGiocatore(searchedId) {
-        return this.state.giocatori.findIndex(v => v.id === searchedId);
+        let newState = Object.assign({}, this.state);
+        newState.giocatori[parseInt(id)].punti += aggiungi;
+        this.setState(newState);
     }
 
     win(moltiplicatore = 1) {
@@ -62,13 +56,11 @@ class Due extends Component {
         this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore);
         this.aggiornaPunti(this.state.socio, 1 * moltiplicatore);
 
-        this.due.giocatori.forEach((v, i) => {
+        this.state.giocatori.forEach((v, i) => {
             if (v.id !== this.state.comandante && v.id !== this.state.socio) {
-                this.aggiornaPunti(this.due.giocatori[i].id, -1 * moltiplicatore);
+                this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
             }
         })
-
-        this.setState(this.due);
 
     }
 
@@ -89,7 +81,11 @@ class Due extends Component {
     }
 
     handleChangeName = (name, i) => {
-        this.due.giocatori[i].name = name;
+
+        let newState = Object.assign({}, this.state);
+        newState.giocatori[i].name = name;
+        this.setState(newState);
+
     }
 
     render() {
@@ -105,11 +101,11 @@ class Due extends Component {
                             optionFilterProp="children"
                             onChange={this.handleChangeComandante}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                            <Option value="g1">{this.state.giocatori[0].nome}</Option>
-                            <Option value="g2">{this.state.giocatori[1].nome}</Option>
-                            <Option value="g3">{this.state.giocatori[2].nome}</Option>
-                            <Option value="g4">{this.state.giocatori[3].nome}</Option>
-                            <Option value="g5">{this.state.giocatori[4].nome}</Option>
+                            <Option value="0">{this.state.giocatori[0].nome}</Option>
+                            <Option value="1">{this.state.giocatori[1].nome}</Option>
+                            <Option value="2">{this.state.giocatori[2].nome}</Option>
+                            <Option value="3">{this.state.giocatori[3].nome}</Option>
+                            <Option value="4">{this.state.giocatori[4].nome}</Option>
                         </Select>
                         <Select
                             showSearch
@@ -118,11 +114,11 @@ class Due extends Component {
                             optionFilterProp="children"
                             onChange={this.handleChangeSocio}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
-                            <Option value="g1">{this.state.giocatori[0].nome}</Option>
-                            <Option value="g2">{this.state.giocatori[1].nome}</Option>
-                            <Option value="g3">{this.state.giocatori[2].nome}</Option>
-                            <Option value="g4">{this.state.giocatori[3].nome}</Option>
-                            <Option value="g5">{this.state.giocatori[4].nome}</Option>
+                            <Option value="0">{this.state.giocatori[0].nome}</Option>
+                            <Option value="1">{this.state.giocatori[1].nome}</Option>
+                            <Option value="2">{this.state.giocatori[2].nome}</Option>
+                            <Option value="3">{this.state.giocatori[3].nome}</Option>
+                            <Option value="4">{this.state.giocatori[4].nome}</Option>
                         </Select>
                         <Button
                             type="primary"
