@@ -100,8 +100,6 @@ class Due extends Component {
                             placeholder="Chi ha chiamato?"
                             optionFilterProp="children"
                             onChange={this.handleChangeComandante}
-                            //onFocus={handleFocus}
-                            //onBlur={handleBlur}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                             <Option value="g1">{this.state.giocatori[0].nome}</Option>
                             <Option value="g2">{this.state.giocatori[1].nome}</Option>
@@ -115,8 +113,6 @@ class Due extends Component {
                             placeholder="Chi era il socio?"
                             optionFilterProp="children"
                             onChange={this.handleChangeSocio}
-                            //onFocus={handleFocus}
-                            //onBlur={handleBlur}
                             filterOption={(input, option) => option.props.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                             <Option value="g1">{this.state.giocatori[0].nome}</Option>
                             <Option value="g2">{this.state.giocatori[1].nome}</Option>
