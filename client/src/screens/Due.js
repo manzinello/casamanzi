@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import update from 'immutability-helper';
 
 import { Row, Col, Button, Select } from 'antd';
 
@@ -71,9 +71,7 @@ class Due extends Component {
     }
 
     fineMano = () => {
-        this.due.storico.push(<FinePartita p0={this.state.giocatori[0].punti} p1={this.state.giocatori[1].punti} p2={this.state.giocatori[2].punti} p3={this.state.giocatori[3].punti} p4={this.state.giocatori[4].punti} />);
         this.win();
-        this.setState(this.due);
     }
 
     handleChangeComandante = v => {
@@ -90,12 +88,9 @@ class Due extends Component {
 
     handleChangeName = (name, i) => {
         this.due.giocatori[i].name = name;
-        this.setState(this.due);
     }
 
     render() {
-
-        this.due = this.state;
 
         return (
             <div>
@@ -160,7 +155,7 @@ class Due extends Component {
                     </Col>
                 </Row>
                 {
-                    this.due.storico.map((v) => <FinePartita />)
+                    this.state.storico.map(() => <FinePartita />)
                 }
             </div>
         )
