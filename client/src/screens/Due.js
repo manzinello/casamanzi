@@ -67,12 +67,15 @@ class Due extends Component {
     fineMano = () => {
 
         this.setState({
-            storico: update(this.state, { storico: { $push: [this.state.giocatori] } })
+            storico: update(this.state.storico, { $push: [this.state] })
         })
+
+        console.log(update(this.state.storico, { $push: [this.state] }));
 
         console.log(this.state.storico.length)
 
         this.win();
+
     }
 
     handleChangeComandante = v => {
@@ -90,7 +93,7 @@ class Due extends Component {
     handleChangeName = (name, i) => {
 
         let newState = Object.assign({}, this.state);
-        newState.giocatori[i].name = name;
+        newState.giocatori[i].nome = name;
         this.setState(newState);
 
     }
