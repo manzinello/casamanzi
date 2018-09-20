@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import moment from 'moment';
 
-import { Row, Col, Button, Select } from 'antd';
+import { Row, Col, Button, Select, Input } from 'antd';
 
 const Option = Select.Option;
 
@@ -179,6 +179,28 @@ class Due extends Component {
                 {
                     this.state.storico.map((giocatori) => giocatori)
                 }
+                <div class="nomi-giocatori">
+                    <Row>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <h3>Nomi</h3>
+                        </Col>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <Input placeholder="Giocatore 1" />
+                        </Col>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <Input placeholder="Giocatore 2" />
+                        </Col>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <Input placeholder="Giocatore 3" />
+                        </Col>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <Input placeholder="Giocatore 4" />
+                        </Col>
+                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                            <Input placeholder="Giocatore 5" />
+                        </Col>
+                    </Row>
+                </div>
             </div>
         )
     }
