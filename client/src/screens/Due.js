@@ -182,22 +182,22 @@ class Due extends Component {
                 <div class="nomi-giocatori">
                     <Row>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <h3>Nomi</h3>
+                            <h4>Nomi</h4>
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input placeholder="Giocatore 1" />
+                            <Input size="small" placeholder="Giocatore 1" />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input placeholder="Giocatore 2" />
+                            <Input size="small" placeholder="Giocatore 2" />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input placeholder="Giocatore 3" />
+                            <Input size="small" placeholder="Giocatore 3" />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input placeholder="Giocatore 4" />
+                            <Input size="small" placeholder="Giocatore 4" />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input placeholder="Giocatore 5" />
+                            <Input size="small" placeholder="Giocatore 5" />
                         </Col>
                     </Row>
                 </div>
