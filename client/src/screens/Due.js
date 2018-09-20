@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 
 import moment from 'moment';
 
@@ -59,7 +59,7 @@ class Due extends Component {
 
     aggiornaPunti(id, aggiungi) {
         let newState = Object.assign({}, this.state);
-        newState.giocatori[parseInt(id)].punti += aggiungi;
+        newState.giocatori[parseInt(id, 10)].punti += aggiungi;
         this.setState(newState);
     }
 
