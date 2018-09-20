@@ -1,6 +1,7 @@
 const bodyParser = require('body-parser');
 const express = require('express');
 const path = require('path');
+
 const request = require('request');
 const schedule = require('node-schedule');
 
@@ -27,10 +28,10 @@ app.use(bodyParser.urlencoded({
 app.use(staticFiles)
 
 router.get('/casamanzi', (req, res) => {
-  const controlla = {
+  const casamanzi = {
     value: "casamanzi!"
   }
-  res.json(controlla)
+  res.json(casamanzi)
 })
 
 app.use(router)
