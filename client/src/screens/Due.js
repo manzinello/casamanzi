@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import update from 'immutability-helper';
 
+import moment from 'moment';
+
 import { Row, Col, Button, Select } from 'antd';
 
 const Option = Select.Option;
