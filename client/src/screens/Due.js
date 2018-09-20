@@ -35,7 +35,7 @@ class Due extends Component {
     }
 
     componentDidUpdate() {
-        console.log("update!");
+        // console.log("update!");
     }
 
     checkPunti() {
@@ -67,10 +67,8 @@ class Due extends Component {
     fineMano = () => {
 
         this.setState({
-            storico: update(this.state.storico, { $push: [this.state] })
+            storico: update(this.state.storico, { $push: [this.state.storico] })
         })
-
-        console.log(update(this.state.storico, { $push: [this.state] }));
 
         console.log(this.state.storico.length)
 
