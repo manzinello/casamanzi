@@ -153,7 +153,7 @@ class Due extends Component {
                 </div>
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h2>{"Punteggio attuale"}</h2>
+                        <h2> </h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
@@ -192,22 +192,22 @@ class FinePartita extends React.Component {
         return (
             <Row>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{(new Date()).getTime()}</h2>
+                    <h3>{moment().format("HH:mm:ss")}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.giocatori[0].punti}</h2>
+                    <h3>{this.props.giocatori[0].punti}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.giocatori[1].punti}</h2>
+                    <h3>{this.props.giocatori[1].punti}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.giocatori[2].punti}</h2>
+                    <h3>{this.props.giocatori[2].punti}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.giocatori[3].punti}</h2>
+                    <h3>{this.props.giocatori[3].punti}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h2>{this.props.giocatori[4].punti}</h2>
+                    <h3>{this.props.giocatori[4].punti}</h3>
                 </Col>
             </Row>
         )
