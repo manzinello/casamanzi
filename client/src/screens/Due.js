@@ -34,6 +34,16 @@ class Due extends Component {
         storico: []
     }
 
+    constructor(props) {
+
+        super();
+
+        let newState = Object.assign({}, this.state);
+        newState.storico.push(<FinePartita giocatori={this.state.giocatori} />);
+        this.setState(newState);
+
+    }
+
     componentDidUpdate() {
         // console.log("update!");
     }
@@ -73,7 +83,7 @@ class Due extends Component {
         */
 
         let newState = Object.assign({}, this.state);
-        newState.storico.push(this.state.giocatori);
+        newState.storico.push(<FinePartita giocatori={this.state.giocatori} />);
         this.setState(newState);
 
         this.win();
@@ -165,7 +175,7 @@ class Due extends Component {
                     </Col>
                 </Row>
                 {
-                    this.state.storico.map((giocatori) => <FinePartita giocatori={giocatori} />)
+                    this.state.storico.map((giocatori) => giocatori)
                 }
             </div>
         )
