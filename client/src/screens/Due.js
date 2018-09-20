@@ -66,11 +66,15 @@ class Due extends Component {
 
     fineMano = () => {
 
+        /*
         this.setState({
-            storico: update(this.state.storico, { $push: [this.state.storico] })
+            storico: update(this.state.storico, { $push: [this.state.giocatori[0].id] })
         })
+        */
 
-        console.log(this.state.storico.length)
+        let newState = Object.assign({}, this.state);
+        newState.storico.push(this.state.giocatori);
+        this.setState(newState);
 
         this.win();
 
