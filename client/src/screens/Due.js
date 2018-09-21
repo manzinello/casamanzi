@@ -239,7 +239,7 @@ class FinePartita extends React.Component {
 
 const styles = {
     col: {
-        //textAlign: 'center'
+        paddingRight: 5
     }
 }
 
