@@ -84,11 +84,13 @@ class Due extends Component {
         })
         */
 
-        let newState = Object.assign({}, this.state);
-        newState.storico.push(<FinePartita giocatori={this.state.giocatori} />);
-        this.setState(newState);
+        if (this.state.comandante && this.state.socio) {
+            let newState = Object.assign({}, this.state);
+            newState.storico.push(<FinePartita giocatori={this.state.giocatori} />);
+            this.setState(newState);
 
-        this.win();
+            this.win();
+        }
 
     }
 
@@ -104,7 +106,7 @@ class Due extends Component {
         })
     }
 
-    handleChangeName = (name, i) => {
+    handleChangeName(name, i) {
 
         let newState = Object.assign({}, this.state);
         newState.giocatori[i].nome = name;
@@ -179,25 +181,25 @@ class Due extends Component {
                 {
                     this.state.storico.map((giocatori) => giocatori)
                 }
-                <div class="nomi-giocatori">
+                <div className="nomi-giocatori">
                     <Row>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                             <h4>Nomi</h4>
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input size="small" placeholder="Giocatore 1" />
+                            <Input size="small" placeholder="Giocatore 1" onChange={event => { this.handleChangeName(event.target.value, 0) }} />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input size="small" placeholder="Giocatore 2" />
+                            <Input size="small" placeholder="Giocatore 2" onChange={event => { this.handleChangeName(event.target.value, 1) }} />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input size="small" placeholder="Giocatore 3" />
+                            <Input size="small" placeholder="Giocatore 3" onChange={event => { this.handleChangeName(event.target.value, 2) }} />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input size="small" placeholder="Giocatore 4" />
+                            <Input size="small" placeholder="Giocatore 4" onChange={event => { this.handleChangeName(event.target.value, 3) }} />
                         </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <Input size="small" placeholder="Giocatore 5" />
+                            <Input size="small" placeholder="Giocatore 5" onChange={event => { this.handleChangeName(event.target.value, 4) }} />
                         </Col>
                     </Row>
                 </div>
