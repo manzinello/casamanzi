@@ -9,7 +9,7 @@ import Due from './screens/Due';
 import Manzistreaming from './screens/Manzistreaming';
 import Cinemanzi from './screens/Cinemanzi';
 
-const { Content, Footer, Sider } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
 
 class Casamanzi extends Component {
 
@@ -58,27 +58,28 @@ class Casamanzi extends Component {
           collapsed={this.state.collapsed}
           onCollapse={this.onCollapse}
           style={{ background: '#fff' }}>
-          <div className="logo" style={{ color: 'white', textAlign: 'center', height: 64, margin: 'auto' }}><img className="emoji-logo" src="images/casamanzi.png" alt="casamanzi" /></div>
+          <div className="logo" style={{ color: 'white', textAlign: 'center', margin: 'auto' }}><img className="emoji-logo" src="images/casamanzi.png" alt="casamanzi" /></div>
           <Menu onSelect={this.select} selectedKeys={[this.state.s]} mode="inline">
-            <Menu.Item key="home">
+            <Menu.Item key="home" style={{ marginTop: 0 }}>
               <Icon type="home" />
               <span>casamanzi</span>
             </Menu.Item>
-            <Menu.Item key="cinemanzi">
+            <Menu.Item key="cinemanzi" style={{ marginTop: 0 }}>
               <Icon type="play-circle" />
               <span>cinemanzi</span>
             </Menu.Item>
-            <Menu.Item key="manzistreaming">
+            <Menu.Item key="manzistreaming" style={{ marginTop: 0 }}>
               <Icon type="video-camera" />
               <span>manzistreaming</span>
             </Menu.Item>
-            <Menu.Item key="due">
+            <Menu.Item key="due" style={{ marginTop: 0 }}>
               <Icon type="file-text" />
               <span>chiamo il due</span>
             </Menu.Item>
           </Menu>
         </Sider>
         <Layout>
+          <Header style={{ background: '#fff' }}>Casamanzi</Header>
           <Content style={{ margin: '16px' }}>
             <div style={{ padding: 24, background: '#fff', minHeight: 360 }}>
               {
