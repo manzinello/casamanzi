@@ -34,6 +34,13 @@ router.get('/casamanzi', (req, res) => {
   res.json(casamanzi)
 })
 
+router.get('/accendiled', (req, res) => {
+  const accendiled = {
+    value: true
+  }
+  res.json(accendiled)
+})
+
 app.use(router)
 
 // any routes not picked up by the server api will be handled by the react router

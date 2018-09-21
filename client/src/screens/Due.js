@@ -156,7 +156,7 @@ class Due extends Component {
                 <Divider />
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h4></h4>
+                        <h4> </h4>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
