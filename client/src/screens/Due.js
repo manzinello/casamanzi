@@ -65,15 +65,28 @@ class Due extends Component {
 
     win(moltiplicatore = 1) {
 
-        this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore);
-        this.aggiornaPunti(this.state.socio, 1 * moltiplicatore);
+        if (this.state.socio !== this.state.comandante) {
 
-        this.state.giocatori.forEach((v, i) => {
-            if (v.id !== this.state.comandante && v.id !== this.state.socio) {
-                this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
-            }
-        })
+            this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore);
+            this.aggiornaPunti(this.state.socio, 1 * moltiplicatore);
 
+            this.state.giocatori.forEach((v, i) => {
+                if (v.id !== this.state.comandante && v.id !== this.state.socio) {
+                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
+                }
+            })
+
+        } else {
+
+            this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore + 2);
+
+            this.state.giocatori.forEach((v, i) => {
+                if (v.id !== this.state.comandante) {
+                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
+                }
+            })
+
+        }
     }
 
     fineMano = () => {
