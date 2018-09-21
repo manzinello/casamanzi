@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import moment from 'moment';
 
-import { Row, Col, Button, Select, Input, Divider } from 'antd';
+import { Row, Col, Button, Select, Input, Divider, Tag } from 'antd';
 
 const Option = Select.Option;
 
@@ -34,6 +34,7 @@ class Due extends Component {
         comandante: '',
         socio: '',
         moltiplicatore: 1,
+        checkpunti: true,
         storico: []
     }
 
@@ -49,12 +50,17 @@ class Due extends Component {
         this.setState(newState);
     }
 
-    componentDidUpdate() {
-        // console.log("update!");
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        if (this.state.giocatori[0].punti !== prevState.giocatori[0].punti) {
+            this.setState({
+                checkpunti: this.checkPunti(this.state)
+            })
+        }
+        return true;
     }
 
-    checkPunti() {
-        var sum = this.state.giocatori.reduce(function (a, b) {
+    checkPunti(s) {
+        var sum = s.giocatori.reduce(function (a, b) {
             return a.punti + b.punti;
         }, 0);
         return sum === 0;
@@ -211,7 +217,11 @@ class Due extends Component {
                         <h2>{this.state.giocatori[4].punti}</h2>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h4> </h4>
+                        {
+                            this.state.checkpunti ?
+                                <Tag color="green">punti corretti</Tag> :
+                                <Tag color="red">punti sbagliati</Tag>
+                        }
                     </Col>
                 </Row>
                 <Divider dashed orientation="left">Tutta la partita</Divider>
