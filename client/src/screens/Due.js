@@ -33,6 +33,7 @@ class Due extends Component {
         }],
         comandante: '',
         socio: '',
+        moltiplicatore: 1,
         storico: []
     }
 
@@ -40,10 +41,12 @@ class Due extends Component {
 
         super();
 
+    }
+
+    componentDidMount() {
         let newState = Object.assign({}, this.state);
         newState.storico.push(<FinePartita giocatori={this.state.giocatori} />);
         this.setState(newState);
-
     }
 
     componentDidUpdate() {
@@ -63,26 +66,26 @@ class Due extends Component {
         this.setState(newState);
     }
 
-    win(moltiplicatore = 1) {
+    win() {
 
         if (this.state.socio !== this.state.comandante) {
 
-            this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore);
-            this.aggiornaPunti(this.state.socio, 1 * moltiplicatore);
+            this.aggiornaPunti(this.state.comandante, 2 * this.state.moltiplicatore);
+            this.aggiornaPunti(this.state.socio, 1 * this.state.moltiplicatore);
 
             this.state.giocatori.forEach((v, i) => {
                 if (v.id !== this.state.comandante && v.id !== this.state.socio) {
-                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
+                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * this.state.moltiplicatore);
                 }
             })
 
         } else {
 
-            this.aggiornaPunti(this.state.comandante, 2 * moltiplicatore + 2);
+            this.aggiornaPunti(this.state.comandante, 2 * this.state.moltiplicatore + 2);
 
             this.state.giocatori.forEach((v, i) => {
                 if (v.id !== this.state.comandante) {
-                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * moltiplicatore);
+                    this.aggiornaPunti(this.state.giocatori[i].id, -1 * this.state.moltiplicatore);
                 }
             })
 
@@ -116,6 +119,12 @@ class Due extends Component {
     handleChangeSocio = v => {
         this.setState({
             socio: v
+        })
+    }
+
+    handledChangeMoltiplicatore = v => {
+        this.setState({
+            moltiplicatore: v
         })
     }
 
@@ -159,6 +168,19 @@ class Due extends Component {
                             <Option value="3">{this.state.giocatori[3].nome}</Option>
                             <Option value="4">{this.state.giocatori[4].nome}</Option>
                         </Select>
+                        <Select
+                            showSearch
+                            style={{ width: 200, paddingRight: 30 }}
+                            placeholder="Moltiplicatore"
+                            optionFilterProp="children"
+                            onChange={this.handledChangeMoltiplicatore}>
+                            <Option value="1">Nessuno</Option>
+                            <Option value="2">x2</Option>
+                            <Option value="4">x4</Option>
+                            <Option value="6">x6</Option>
+                            <Option value="8">x8</Option>
+                            <Option value="10">x10</Option>
+                        </Select>
                         <Button
                             type="primary"
                             onClick={this.fineMano}>
@@ -168,9 +190,6 @@ class Due extends Component {
                 </div>
                 <Divider />
                 <Row>
-                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h4> </h4>
-                    </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
                         <h2>{this.state.giocatori[0].punti}</h2>
@@ -191,6 +210,9 @@ class Due extends Component {
                         <h3>{this.state.giocatori[4].nome}</h3>
                         <h2>{this.state.giocatori[4].punti}</h2>
                     </Col>
+                    <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                        <h4> </h4>
+                    </Col>
                 </Row>
                 <Divider dashed orientation="left">Tutta la partita</Divider>
                 {
@@ -199,9 +221,6 @@ class Due extends Component {
                 <Divider />
                 <div className="nomi-giocatori">
                     <Row>
-                        <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                            <h4>Nomi</h4>
-                        </Col>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                             <Input size="small" placeholder="Giocatore 1" onChange={event => { this.handleChangeName(event.target.value, 0) }} />
                         </Col>
@@ -232,9 +251,6 @@ class FinePartita extends React.Component {
         return (
             <Row>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                    <h3>{moment().format("HH:mm:ss")}</h3>
-                </Col>
-                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                     <h3>{this.props.giocatori[0].punti}</h3>
                 </Col>
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
@@ -249,6 +265,9 @@ class FinePartita extends React.Component {
                 <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                     <h3>{this.props.giocatori[4].punti}</h3>
                 </Col>
+                <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+                    <h3>{moment().format("HH:mm:ss")}</h3>
+                </Col>
             </Row>
         )
 
@@ -257,7 +276,8 @@ class FinePartita extends React.Component {
 
 const styles = {
     col: {
-        paddingRight: 5,
+        paddingRight: 2,
+        paddingLeft: 2,
         textAlign: 'center'
     }
 }
