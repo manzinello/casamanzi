@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import Due from './screens/Due';
 import Manzistreaming from './screens/Manzistreaming';
 import Cinemanzi from './screens/Cinemanzi';
+import Raspi from './screens/Raspi';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -65,16 +66,20 @@ class Casamanzi extends Component {
               <span>casamanzi</span>
             </Menu.Item>
             <Menu.Item key="cinemanzi" style={{ marginTop: 0 }}>
-              <Icon type="play-circle" />
+              <Icon type="video-camera" />
               <span>cinemanzi</span>
             </Menu.Item>
             <Menu.Item key="manzistreaming" style={{ marginTop: 0 }}>
-              <Icon type="video-camera" />
+              <Icon type="play-circle" />
               <span>manzistreaming</span>
             </Menu.Item>
             <Menu.Item key="due" style={{ marginTop: 0 }}>
-              <Icon type="file-text" />
+              <Icon type="tags" />
               <span>chiamo il due</span>
+            </Menu.Item>
+            <Menu.Item key="raspi" style={{ marginTop: 0 }}>
+              <Icon type="usb" />
+              <span>raspberry</span>
             </Menu.Item>
           </Menu>
         </Sider>
@@ -86,7 +91,8 @@ class Casamanzi extends Component {
                 this.state.s === 'home' ? <Home /> :
                   this.state.s === 'due' ? <Due /> :
                     this.state.s === 'cinemanzi' ? <Cinemanzi /> :
-                      <Manzistreaming />
+                      this.state.s === 'raspi' ? <Raspi /> :
+                        <Manzistreaming />
               }
             </div>
           </Content>
