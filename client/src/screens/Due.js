@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import moment from 'moment';
 
-import { Row, Col, Button, Select, Input } from 'antd';
+import { Row, Col, Button, Select, Input, Divider } from 'antd';
 
 const Option = Select.Option;
 
@@ -153,9 +153,10 @@ class Due extends Component {
                         </Button>
                     </Row>
                 </div>
+                <Divider />
                 <Row>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
-                        <h2> </h2>
+                        <h4></h4>
                     </Col>
                     <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
                         <h3>{this.state.giocatori[0].nome}</h3>
@@ -178,9 +179,11 @@ class Due extends Component {
                         <h2>{this.state.giocatori[4].punti}</h2>
                     </Col>
                 </Row>
+                <Divider dashed orientation="left">Tutta la partita</Divider>
                 {
                     this.state.storico.map((giocatori) => giocatori)
                 }
+                <Divider />
                 <div className="nomi-giocatori">
                     <Row>
                         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
@@ -241,7 +244,8 @@ class FinePartita extends React.Component {
 
 const styles = {
     col: {
-        paddingRight: 5
+        paddingRight: 5,
+        textAlign: 'center'
     }
 }
 
