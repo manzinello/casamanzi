@@ -1,36 +1,40 @@
-@import '~antd/dist/antd.css';
+@import "~antd/dist/antd.css";
 
 .logo {
-    height: 64px;
-    margin: 16px;
+  height: 64px;
+  margin: 16px;
 }
 
 .logo-p {
-    line-height: 64px;
-    font-size: 32px;
+  line-height: 64px;
+  font-size: 32px;
 }
 
 .header-p {
-    margin-left: 16px;
-    font-size: 24px;
+  margin-left: 16px;
+  font-size: 24px;
 }
 
 .ant-layout-sider-zero-width-trigger {
-    top: 88%;
+  top: 88%;
 }
 
 .emoji {
-    height: 28px;
-    width: 28px;
-    margin-bottom: 4px;
+  height: 28px;
+  width: 28px;
+  margin-bottom: 4px;
 }
 
 .emoji-logo {
-    height: 30px;
-    width: 30px;
-    margin-top: 16px;
+  height: 30px;
+  width: 30px;
+  margin-top: 16px;
 }
 
 .punteggio-row {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
+}
+
+.nomi-giocatori {
+  color: #333 !important;
 }

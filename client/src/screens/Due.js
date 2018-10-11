@@ -228,16 +228,15 @@ class Due extends Component {
             <h2>{this.state.giocatori[4].punti}</h2>
           </Col>
           <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+            <h3>Punteggio</h3>
             {this.state.checkpunti ? (
-              <Tag color="green">punti corretti</Tag>
+              <Tag color="green">OK!</Tag>
             ) : (
-              <Tag color="red">punti sbagliati</Tag>
+              <Tag color="red">NO!</Tag>
             )}
           </Col>
         </Row>
-        <Divider dashed orientation="left">
-          Tutta la partita
-        </Divider>
+        <Divider dashed>Tutta la partita</Divider>
         {this.state.storico.map(giocatori => giocatori)}
         <Divider />
         <div className="nomi-giocatori">
@@ -299,21 +298,27 @@ class FinePartita extends React.Component {
     return (
       <Row>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{this.props.giocatori[0].nome}</h4>
           <h3>{this.props.giocatori[0].punti}</h3>
         </Col>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{this.props.giocatori[1].nome}</h4>
           <h3>{this.props.giocatori[1].punti}</h3>
         </Col>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{this.props.giocatori[2].nome}</h4>
           <h3>{this.props.giocatori[2].punti}</h3>
         </Col>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{this.props.giocatori[3].nome}</h4>
           <h3>{this.props.giocatori[3].punti}</h3>
         </Col>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{this.props.giocatori[4].nome}</h4>
           <h3>{this.props.giocatori[4].punti}</h3>
         </Col>
         <Col style={styles.col} xs={24} sm={24} md={4} lg={4} xl={4}>
+          <h4>{"O"}</h4>
           <h3>{moment().format("HH:mm:ss")}</h3>
         </Col>
       </Row>
