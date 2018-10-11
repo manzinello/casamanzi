@@ -1,37 +1,31 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-import { Button } from 'antd';
+import { Button } from "antd";
 
 class Cinemanzi extends Component {
+  state = {
+    led: false
+  };
 
-    state = {
-        led: false
-    }
+  async accendiLed() {
+    const response = await fetch("/accendiled");
+    const acceso = await response.json();
 
-    async accendiLed() {
+    console.log(acceso);
 
-        const response = await fetch('/accendiled');
-        const acceso = await response.json();
+    // Qui c'è da gestire la richiesta e far uscire un'altra pagina in base allo state!
+    this.setState({ led: acceso });
+  }
 
-        console.log(acceso);
-
-        // Qui c'è da gestire la richiesta e far uscire un'altra pagina in base allo state!
-        this.setState({ led: acceso })
-
-    }
-
-    render() {
-        return (
-            <div>
-                <Button
-                    type="primary"
-                    onClick={this.accendiLed}>
-                    {"Accendi il LED"}
-                </Button>
-            </div>
-        )
-    }
-
+  render() {
+    return (
+      <div>
+        <Button type="primary" onClick={this.accendiLed}>
+          {"Accendi il LED"}
+        </Button>
+      </div>
+    );
+  }
 }
 
 export default Cinemanzi;

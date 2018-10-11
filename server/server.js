@@ -1,9 +1,9 @@
-const bodyParser = require('body-parser');
-const express = require('express');
-const path = require('path');
+const bodyParser = require("body-parser");
+const express = require("express");
+const path = require("path");
 
-const request = require('request');
-const schedule = require('node-schedule');
+const request = require("request");
+const schedule = require("node-schedule");
 
 /*
 const Gpio = require('onoff').Gpio;
@@ -14,47 +14,47 @@ const button = new Gpio(4, 'in', 'both');
 const REQUEST_OK = 200;
 const ERROR = "error";
 
-const router = express.Router()
+const router = express.Router();
 
-const staticFiles = express.static(path.join(__dirname, '../../client/build'))
+const staticFiles = express.static(path.join(__dirname, "../../client/build"));
 
 const app = express();
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-  extended: false
-}))
+app.use(bodyParser.json());
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
 
-app.use(staticFiles)
+app.use(staticFiles);
 
-router.get('/casamanzi', (req, res) => {
+router.get("/casamanzi", (req, res) => {
   const casamanzi = {
     value: "casamanzi!"
-  }
-  res.json(casamanzi)
-})
+  };
+  res.json(casamanzi);
+});
 
-router.get('/accendiled', (req, res) => {
+router.get("/accendiled", (req, res) => {
   const accendiled = {
     value: true
-  }
-  res.json(accendiled)
-})
+  };
+  res.json(accendiled);
+});
 
-app.use(router)
+app.use(router);
 
 // any routes not picked up by the server api will be handled by the react router
-app.use('/*', staticFiles)
-app.set('port', (process.env.PORT || 3001))
+app.use("/*", staticFiles);
+app.set("port", process.env.PORT || 3001);
 
-app.listen(app.get('port'), () => {
-
-  console.log(`listening on ${app.get('port')}`);
+app.listen(app.get("port"), () => {
+  console.log(`listening on ${app.get("port")}`);
 
   /*
   button.watch(function (err, value) {
     led.writeSync(value);
   });
   */
-
-})
+});
