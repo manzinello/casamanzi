@@ -5,7 +5,7 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "antd": "^3.10.0",
+    "antd": "^3.10.1",
     "evergreen-ui": "^4.0.0-18",
     "immutability-helper": "^2.8.1",
     "moment": "^2.22.2",
