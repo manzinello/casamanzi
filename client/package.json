@@ -5,11 +5,11 @@
   "private": true,
   "proxy": "http://localhost:3001",
   "dependencies": {
-    "antd": "^3.10.1",
+    "antd": "^3.10.2",
     "immutability-helper": "^2.8.1",
     "moment": "^2.22.2",
-    "react": "^16.5.2",
-    "react-dom": "^16.5.2",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
     "react-scripts": "2.0.5"
   },
   "scripts": {
