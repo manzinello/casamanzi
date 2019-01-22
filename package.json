@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "concurrently": "^4.1.0",
-    "rimraf": "^2.6.2"
+    "rimraf": "^2.6.3"
   },
   "scripts": {
     "build": "concurrently \"cd client && npm run build\" \"cd server && npm run build\"",
