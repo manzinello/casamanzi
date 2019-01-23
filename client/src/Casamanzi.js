@@ -36,6 +36,7 @@ class Casamanzi extends Component {
   };
 
   async componentDidMount() {
+    /*
     const response = await fetch("/casamanzi");
     const c = await response.json();
 
@@ -43,6 +44,7 @@ class Casamanzi extends Component {
 
     // Qui c'è da gestire la richiesta e far uscire un'altra pagina in base allo state!
     this.setState({ casamanzi: c });
+    */
   }
 
   render() {

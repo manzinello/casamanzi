@@ -8,6 +8,7 @@ class Manzistreaming extends Component {
   };
 
   componentDidMount = () => {
+    /*
     fetch(manzistreamingEndpoint)
       .then(response => {
         if (response.statusCode === 200) {
@@ -15,6 +16,7 @@ class Manzistreaming extends Component {
         }
       })
       .catch(() => {});
+      */
   };
 
   render() {
