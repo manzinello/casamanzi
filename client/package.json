@@ -3,7 +3,6 @@
   "description": "Client di casamanzi",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
   "dependencies": {
     "antd": "^3.12.4",
     "immutability-helper": "^2.9.0",
@@ -16,7 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "now-build": "react-scripts build && mv build dist"
   },
   "browserslist": [
     ">0.2%",
